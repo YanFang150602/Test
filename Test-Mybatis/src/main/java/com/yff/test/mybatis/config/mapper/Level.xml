@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yff.test.mybatis.dao.LevelMapper">
+    <resultMap id="LevelResultMap" type="com.yff.test.mybatis.bean.Level">
+        <id property="id" jdbcType="INTEGER" column="ID"></id>
+        <result property="name" jdbcType="VARCHAR" column="L_NAME"></result>
+    </resultMap>
+
+    <select id="queryAllLevel" resultMap="LevelResultMap">
+        select ID,L_NAME from T_LEVEL
+    </select>
+</mapper>

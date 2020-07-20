@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yff.test.springmybatis.mapper.ClassesMapper">
+    <select id="queryClassesById" parameterType="int" resultType="Classes">
+        select id,c_name name from t_classes where id=#{id}
+    </select>
+    <insert id="insertClasses" parameterType="com.yff.test.springmybatis.bean.Classes">
+        insert into t_classes(c_name) values(#{name})
+    </insert>
+</mapper>

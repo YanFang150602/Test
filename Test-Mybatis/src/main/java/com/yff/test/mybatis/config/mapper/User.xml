@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yff.test.mybatis.dao.UserMapper">
+    <resultMap id="UserResultMap" type="com.yff.test.mybatis.bean.User">
+        <id property="id" jdbcType="INTEGER" column="ID"></id>
+        <result property="no" jdbcType="VARCHAR" column="U_NO"></result>
+        <result property="name" jdbcType="VARCHAR" column="U_NAME"></result>
+        <result property="gender" jdbcType="VARCHAR" column="U_GENDER"></result>
+        <!-- <association property="level" resultMap="com.yff.test.mybatis.dao.LevelMapper.LevelResultMap"></association> -->
+        <association property="level" javaType="com.yff.test.mybatis.bean.Level">
+        	<id property="id" column="L_ID"></id>
+        	<result property="name" column="L_NAME"></result>
+        </association>
+    </resultMap>
+
+    <select id="queryAllUser" resultMap="UserResultMap">
+        select U.ID ID,U.U_NO U_NO,U.U_NAME U_NAME,U.U_GENDER U_GENDER,L.ID L_ID,L.L_NAME L_NAME from T_USER U, T_LEVEL L where U.U_LEVEL = L.ID
+    </select>
+    
+    <insert id="insetOneUser" parameterType="com.yff.test.mybatis.bean.User">
+    	insert into T_USER(ID,U_NO,U_NAME,U_GENDER,U_LEVEL) values(#{id},#{no},#{name},#{gender},#{level.id})
+    </insert>
+</mapper>

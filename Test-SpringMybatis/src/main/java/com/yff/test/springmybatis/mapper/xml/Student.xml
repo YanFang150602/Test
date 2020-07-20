@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yff.test.springmybatis.mapper.StudentMapper">
+    <select id="getClassesNameByStudentId" statementType="CALLABLE" parameterMap="studentParameterMap">
+        call sm.p_getClassesNameByStudentID(?,?)
+    </select>
+    <parameterMap id="studentParameterMap" type="java.util.Map">
+        <parameter property="studentId" mode="IN"></parameter>
+        <parameter property="classesName" mode="OUT"></parameter>
+    </parameterMap>
+
+    <insert id="insertStudent" parameterType="Student">
+        insert into t_student(s_name,s_sex,s_classes) values(#{name},#{sex},#{classes.id})
+    </insert>
+</mapper>
