@@ -11,6 +11,8 @@
     <modules>
         <module>Test-Mybatis</module>
         <module>Test-SpringMybatis</module>
+        <module>JavaBase</module>
+        <module>JavaScript</module>
     </modules>
 
 

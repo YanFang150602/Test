@@ -26,8 +26,8 @@ public class TestUserDAO {
     	User user = new User();
     	user.setId(1);
     	user.setNo("2001");
-    	user.setName("√√√√");
-    	user.setGender("≈Æ");
+    	user.setName("Â¶πÂ¶π");
+    	user.setGender("Â•≥");
     	user.setLevel(level);
     	UserDAO userDAO = new UserDAO();
     	userDAO.insertOneUser(user);
